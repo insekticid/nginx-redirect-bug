@@ -1,0 +1,14 @@
+version: '2.2'
+
+services:
+    nginx:
+        restart: "always"
+        image: nginx:latest
+        ports:
+            - "8081:80"
+        #command: 
+            #- entrypoint.sh
+        volumes:
+            - ./docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+            - ./conf.d:/etc/nginx/conf.d
+        #env_file: .env
